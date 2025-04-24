@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emotional Anime - DAEKWEEB</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+    <style>
+        /* Enhanced styles for emotional page */
+        body {
+            overflow-x: hidden;
+        }
+        
+        .emotional-header {
+            position: relative;
+            height: 500px;
+            width: 100%;
+            margin-top: 0;
+            background-image: linear-gradient(to right, 
+                rgba(0, 0, 0, 0.95) 0%, 
+                rgba(0, 0, 0, 0.8) 40%, 
+                rgba(0, 0, 0, 0.6) 70%, 
+                rgba(0, 0, 0, 0.3) 100%), 
+                url('images/emotional.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            padding: 0 5%;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        
+        .emotional-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 70% 50%, rgba(110, 64, 170, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
+            pointer-events: none;
+        }
+        
+        .emotional-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background: linear-gradient(to top, rgba(10, 10, 10, 1) 0%, rgba(10, 10, 10, 0) 100%);
+            pointer-events: none;
+        }
+        
+        .emotional-title {
+            position: relative;
+            max-width: 700px;
+            padding: 40px 50px;
+            border-left: 5px solid #6e40aa;
+            animation: fadeInUp 1s ease-out;
+            transform: translateZ(0);
+        }
+        
+        .emotional-title::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -5px;
+            width: 5px;
+            height: 0;
+            background: linear-gradient(to bottom, #6e40aa, #e50914);
+            animation: borderAnimation 1.5s ease-out forwards;
+            animation-delay: 0.5s;
+        }
+        
+        @keyframes borderAnimation {
+            0% { height: 0; }
+            100% { height: 100%; }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .emotional-title h1 {
+            font-size: 4.2rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: #ffffff;
+            text-shadow: 0 3px 10px rgba(0, 0, 0, 0.6);
+            position: relative;
+        }
+        
+        .emotional-title h1::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, #6e40aa, #e50914);
+            border-radius: 2px;
+        }
+        
+        .emotional-title p {
+            font-size: 1.25rem;
+            line-height: 1.6;
+            color: #e5e5e5;
+            max-width: 600px;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            margin-top: 25px;
+        }
+        
+        .emotional-content {
+            padding: 80px 0;
+            background: linear-gradient(to bottom, #0a0a0a 0%, #141414 100%);
+            position: relative;
+        }
+        
+        .emotional-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('images/pattern.svg');
+            background-size: cover;
+            opacity: 0.03;
+            pointer-events: none;
+        }
+        
+        .section-title {
+            position: relative;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 50px;
+            text-align: center;
+            color: #ffffff;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, #6e40aa, #e50914);
+            border-radius: 2px;
+        }
+        
+        .anime-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+            perspective: 1000px;
+        }
+        
+        .anime-card {
+            position: relative;
+            background-color: #1a1a1a;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            transform-style: preserve-3d;
+            transform: translateZ(0);
+        }
+        
+        .anime-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 20px 35px rgba(0, 0, 0, 0.5), 0 0 20px rgba(110, 64, 170, 0.3);
+            z-index: 5;
+        }
+        
+        .anime-image {
+            position: relative;
+            height: 0;
+            padding-top: 150%;
+            overflow: hidden;
+        }
+        
+        .anime-image img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+        }
+        
+        .anime-card:hover .anime-image img {
+            transform: scale(1.08);
+        }
+        
+        .anime-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, 
+                rgba(0, 0, 0, 0) 0%, 
+                rgba(0, 0, 0, 0.3) 50%, 
+                rgba(0, 0, 0, 0.9) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .anime-card:hover .anime-overlay {
+            opacity: 1;
+        }
+        
+        .play-btn {
+            background-color: rgba(110, 64, 170, 0.9);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            font-size: 1.4rem;
+            cursor: pointer;
+            transform: translateY(20px) scale(0.8);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+        
+        .anime-card:hover .play-btn {
+            transform: translateY(0) scale(1);
+        }
+        
+        .play-btn:hover {
+            background-color: rgba(229, 9, 20, 0.9);
+            transform: translateY(0) scale(1.1);
+        }
+        
+        .anime-info {
+            padding: 20px;
+            position: relative;
+        }
+        
+        .anime-info h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #fff;
+            transition: color 0.3s ease;
+        }
+        
+        .anime-card:hover .anime-info h3 {
+            color: #a76af5;
+        }
+        
+        .anime-meta {
+            display: flex;
+            justify-content: space-between;
+            color: #b3b3b3;
+            font-size: 0.85rem;
+        }
+        
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .rating i {
+            color: #ffb400;
+        }
+        
+        .emotional-quote {
+            background: rgba(26, 10, 21, 0.7);
+            border-radius: 12px;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 60px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .emotional-quote::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(to right, #6e40aa, #e50914);
+        }
+        
+        .emotional-quote blockquote {
+            font-size: 1.6rem;
+            font-weight: 300;
+            line-height: 1.8;
+            color: #fff;
+            font-style: italic;
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            z-index: 1;
+        }
+        
+        .emotional-quote blockquote::before,
+        .emotional-quote blockquote::after {
+            content: '"';
+            font-family: Georgia, serif;
+            font-size: 5rem;
+            color: rgba(110, 64, 170, 0.3);
+            position: absolute;
+            line-height: 0;
+        }
+        
+        .emotional-quote blockquote::before {
+            left: -40px;
+            top: 30px;
+        }
+        
+        .emotional-quote blockquote::after {
+            right: -40px;
+            bottom: -20px;
+        }
+        
+        .quote-source {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .quote-source cite {
+            font-size: 1.1rem;
+            color: #e50914;
+            font-style: normal;
+            display: block;
+            font-weight: 500;
+        }
+        
+        .quote-source .anime-title {
+            font-size: 0.9rem;
+            color: #b3b3b3;
+            display: block;
+            margin-top: 5px;
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, #6e40aa, #e50914);
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(to bottom, #8c54cc, #ff1f29);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <a href="index1.html"><img src="images/logo.png" alt="DAEKWEEB Logo"></a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index1.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="index1.html#categories"><i class="fas fa-list"></i> Categories</a></li>
+                    <li><a href="index1.html#trending"><i class="fas fa-fire"></i> Trending</a></li>
+                    <li><a href="index1.html#popular"><i class="fas fa-star"></i> Popular</a></li>
+                </ul>
+            </nav>
+            <div class="user-actions">
+                <div class="search-bar">
+                    <input type="text" placeholder="Search anime...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <div class="user-profile">
+                    <img src="images/avatar-placeholder.svg" alt="User profile">
+                </div>
+                <button class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Emotional Header -->
+    <section class="emotional-header">
+        <div class="emotional-title">
+            <h1>Emotional Anime</h1>
+            <p>Discover heartfelt stories that will move you to tears and touch your soul. Experience the full spectrum of human emotions through captivating storytelling and unforgettable characters.</p>
+        </div>
+    </section>
+
+    <!-- Emotional Content -->
+    <section class="emotional-content">
+        <div class="container">
+            <!-- Featured Quote -->
+            <div class="emotional-quote">
+                <blockquote>
+                    Sometimes the smallest things take up the most room in your heart.
+                </blockquote>
+                <div class="quote-source">
+                    <cite>Your Lie in April</cite>
+                    <span class="anime-title">A story about music, love, and finding meaning after loss</span>
+                </div>
+            </div>
+
+            <!-- Top Emotional Anime -->
+            <h2 class="section-title">Top Emotional Anime</h2>
+            <div class="anime-grid">
+                <div class="anime-card">
+                    <div class="anime-image">
+                        <img src="images/anime4.jpg" alt="Emotional Anime 1">
+                        <div class="anime-overlay">
+                            <button class="play-btn"><i class="fas fa-play"></i></button>
+                        </div>
+                    </div>
+                    <div class="anime-info">
+                        <h3>Your Lie in April</h3>
+                        <div class="anime-meta">
+                            <span class="rating"><i class="fas fa-star"></i> 9.2</span>
+                            <span class="episodes">22 Episodes</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="anime-card">
+                    <div class="anime-image">
+                        <img src="images/anime3.jpg" alt="Emotional Anime 2">
+                        <div class="anime-overlay">
+                            <button class="play-btn"><i class="fas fa-play"></i></button>
+                        </div>
+                    </div>
+                    <div class="anime-info">
+                        <h3>Violet Evergarden</h3>
+                        <div class="anime-meta">
+                            <span class="rating"><i class="fas fa-star"></i> 9.0</span>
+                            <span class="episodes">13 Episodes</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="anime-card">
+                    <div class="anime-image">
+                        <img src="images/anime6.jpg" alt="Emotional Anime 3">
+                        <div class="anime-overlay">
+                            <button class="play-btn"><i class="fas fa-play"></i></button>
+                        </div>
+                    </div>
+                    <div class="anime-info">
+                        <h3>Clannad: After Story</h3>
+                        <div class="anime-meta">
+                            <span class="rating"><i class="fas fa-star"></i> 9.4</span>
+                            <span class="episodes">24 Episodes</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="anime-card">
+                    <div class="anime-image">
+                        <img src="images/anime2.jpg" alt="Emotional Anime 4">
+                        <div class="anime-overlay">
+                            <button class="play-btn"><i class="fas fa-play"></i></button>
+                        </div>
+                    </div>
+                    <div class="anime-info">
+                        <h3>Anohana</h3>
+                        <div class="anime-meta">
+                            <span class="rating"><i class="fas fa-star"></i> 8.9</span>
+                            <span class="episodes">11 Episodes</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="index1.html"><img src="images/logo.png" alt="DAEKWEEB Logo"></a>
+                    <p>Your ultimate anime streaming platform with thousands of titles from classic to the latest releases. Join our community today!</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-discord"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h3>Navigate</h3>
+                        <ul>
+                            <li><a href="index1.html"><i class="fas fa-home"></i> Home</a></li>
+                            <li><a href="index1.html#categories"><i class="fas fa-list"></i> Categories</a></li>
+                            <li><a href="index1.html#trending"><i class="fas fa-fire"></i> Trending</a></li>
+                            <li><a href="index1.html#popular"><i class="fas fa-star"></i> Popular</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Categories</h3>
+                        <ul>
+                            <li><a href="action.html"><i class="fas fa-fist-raised"></i> Action</a></li>
+                            <li><a href="romance.html"><i class="fas fa-heart"></i> Romance</a></li>
+                            <li><a href="fantasy.html"><i class="fas fa-dragon"></i> Fantasy</a></li>
+                            <li><a href="scifi.html"><i class="fas fa-robot"></i> Sci-Fi</a></li>
+                            <li><a href="comedy.html"><i class="fas fa-laugh"></i> Comedy</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>About</h3>
+                        <ul>
+                            <li><a href="#"><i class="fas fa-info-circle"></i> About Us</a></li>
+                            <li><a href="#"><i class="fas fa-envelope"></i> Contact</a></li>
+                            <li><a href="#"><i class="fas fa-question-circle"></i> FAQ</a></li>
+                            <li><a href="#"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="copyright">&copy; 2023 DAEKWEEB. All rights reserved.</p>
+                <div class="footer-links-bottom">
+                    <a href="#">Sitemap</a>
+                    <a href="#">Feedback</a>
+                    <a href="#">Cookies</a>
+                    <a href="#">Report Issues</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html> 

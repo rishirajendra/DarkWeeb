@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse Anime by Category | DAEKWEEB</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html"><img src="images/logo.png" alt="DAEKWEEB Logo"></a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="index.html#categories" class="active"><i class="fas fa-list"></i> Categories</a></li>
+                    <li><a href="index.html#trending"><i class="fas fa-fire"></i> Trending</a></li>
+                    <li><a href="index.html#popular"><i class="fas fa-star"></i> Popular</a></li>
+                </ul>
+            </nav>
+            <div class="user-actions">
+                <div class="search-bar">
+                    <input type="text" placeholder="Search anime..." id="search-input">
+                    <button onclick="performSearch()"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="user-profile">
+                    <img src="images/avatar-placeholder.svg" alt="User profile">
+                </div>
+                <button class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Category Banner -->
+    <section class="category-banner">
+        <div class="container">
+            <h1 id="category-title">Loading Category...</h1>
+            <p id="category-description">Browse the best anime in this category</p>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="browse-filters">
+        <div class="container">
+            <div class="filter-controls">
+                <div class="filter-group">
+                    <label>Sort By:</label>
+                    <select id="sort-select">
+                        <option value="popularity">Popularity</option>
+                        <option value="newest">Newest First</option>
+                        <option value="oldest">Oldest First</option>
+                        <option value="rating">Highest Rated</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Status:</label>
+                    <select id="status-select">
+                        <option value="all">All</option>
+                        <option value="airing">Currently Airing</option>
+                        <option value="completed">Completed</option>
+                        <option value="upcoming">Upcoming</option>
+                    </select>
+                </div>
+                <button class="btn btn-primary filter-btn">Apply Filters</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="browse-results">
+        <div class="container">
+            <div class="results-grid" id="anime-results">
+                <!-- Anime results will be populated here by JavaScript -->
+            </div>
+            <div class="loading-spinner" id="loading-spinner">
+                <i class="fas fa-spinner fa-spin"></i>
+                <p>Loading anime...</p>
+            </div>
+            <div class="pagination">
+                <button class="btn btn-secondary" id="load-more-btn">Load More</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="images/logo.png" alt="DAEKWEEB Logo">
+                    <p>Your ultimate destination for anime streaming</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h3>Navigate</h3>
+                        <ul>
+                            <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                            <li><a href="index.html#categories"><i class="fas fa-list"></i> Categories</a></li>
+                            <li><a href="index.html#trending"><i class="fas fa-fire"></i> Trending</a></li>
+                            <li><a href="index.html#popular"><i class="fas fa-star"></i> Popular</a></li>
+                            <li><a href="#"><i class="fas fa-calendar"></i> New Releases</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Explore</h3>
+                        <ul>
+                            <li><a href="#"><i class="fas fa-film"></i> Movies</a></li>
+                            <li><a href="#"><i class="fas fa-tv"></i> Series</a></li>
+                            <li><a href="#"><i class="fas fa-closed-captioning"></i> Subbed</a></li>
+                            <li><a href="#"><i class="fas fa-microphone-alt"></i> Dubbed</a></li>
+                            <li><a href="#"><i class="fas fa-heart"></i> Most Popular</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Support</h3>
+                        <ul>
+                            <li><a href="#"><i class="fas fa-question-circle"></i> FAQ</a></li>
+                            <li><a href="#"><i class="fas fa-envelope"></i> Contact Us</a></li>
+                            <li><a href="#"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li>
+                            <li><a href="#"><i class="fas fa-file-contract"></i> Terms of Service</a></li>
+                            <li><a href="#"><i class="fas fa-info-circle"></i> About Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 DAEKWEEB. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Browse page specific JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get category from URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const category = urlParams.get('category') || 'action';
+            
+            // Update category title and description
+            updateCategoryDisplay(category);
+            
+            // Load mock anime data for the selected category
+            loadAnimeByCategory(category);
+            
+            // Set up filter and sorting event listeners
+            document.querySelector('.filter-btn').addEventListener('click', function() {
+                const sortBy = document.getElementById('sort-select').value;
+                const status = document.getElementById('status-select').value;
+                
+                // Reload anime with new filters
+                loadAnimeByCategory(category, sortBy, status);
+            });
+            
+            // Load more button
+            document.getElementById('load-more-btn').addEventListener('click', function() {
+                // In a real app, this would load the next page of results
+                loadMoreAnime(category);
+            });
+        });
+        
+        function updateCategoryDisplay(category) {
+            const categoryTitle = document.getElementById('category-title');
+            const categoryDescription = document.getElementById('category-description');
+            
+            // Set default values
+            let title = category.charAt(0).toUpperCase() + category.slice(1);
+            let description = 'Browse the best anime in this category';
+            
+            // Customize based on category
+            switch(category.toLowerCase()) {
+                case 'action':
+                    description = 'Exciting battles, intense fights, and thrilling adventures';
+                    break;
+                case 'romance':
+                    description = 'Heartwarming love stories and emotional connections';
+                    break;
+                case 'fantasy':
+                    description = 'Magical worlds, mythical creatures, and epic quests';
+                    break;
+                case 'sci-fi':
+                    title = 'Sci-Fi';
+                    description = 'Futuristic technology, space exploration, and scientific concepts';
+                    break;
+                case 'comedy':
+                    description = 'Hilarious moments, funny characters, and light-hearted stories';
+                    break;
+                case 'emotional':
+                    description = 'Heartfelt stories, deep emotions, and touching moments';
+                    break;
+            }
+            
+            categoryTitle.textContent = title + ' Anime';
+            categoryDescription.textContent = description;
+            
+            // Update page title
+            document.title = title + ' Anime | DAEKWEEB';
+            
+            // Apply category-specific styling to banner
+            const banner = document.querySelector('.category-banner');
+            banner.className = 'category-banner ' + category.toLowerCase() + '-theme';
+        }
+        
+        function loadAnimeByCategory(category, sortBy = 'popularity', status = 'all') {
+            const resultsContainer = document.getElementById('anime-results');
+            const loadingSpinner = document.getElementById('loading-spinner');
+            
+            // Show loading spinner
+            resultsContainer.style.display = 'none';
+            loadingSpinner.style.display = 'flex';
+            
+            // Simulate API call delay
+            setTimeout(() => {
+                // Mock data - in a real app, this would come from an API
+                const animeData = generateMockAnimeData(category, 12);
+                
+                // Apply sorting and filtering
+                let filteredData = animeData;
+                if (status !== 'all') {
+                    filteredData = filteredData.filter(anime => anime.status === status);
+                }
+                
+                // Sort data
+                filteredData.sort((a, b) => {
+                    if (sortBy === 'newest') return b.year - a.year;
+                    if (sortBy === 'oldest') return a.year - b.year;
+                    if (sortBy === 'rating') return b.rating - a.rating;
+                    return b.popularity - a.popularity; // default: popularity
+                });
+                
+                // Render results
+                renderAnimeResults(filteredData);
+                
+                // Hide loading spinner, show results
+                loadingSpinner.style.display = 'none';
+                resultsContainer.style.display = 'grid';
+            }, 1000);
+        }
+        
+        function renderAnimeResults(animeList) {
+            const resultsContainer = document.getElementById('anime-results');
+            
+            // Clear previous results
+            resultsContainer.innerHTML = '';
+            
+            if (animeList.length === 0) {
+                resultsContainer.innerHTML = '<div class="no-results">No anime found matching your criteria</div>';
+                return;
+            }
+            
+            // Create anime cards
+            animeList.forEach((anime, index) => {
+                const card = document.createElement('div');
+                card.className = 'anime-card fade-in';
+                card.style.animationDelay = `${index * 0.1}s`;
+                
+                card.innerHTML = `
+                    <div class="anime-image">
+                        <img src="${anime.image}" alt="${anime.title}">
+                        <div class="anime-overlay">
+                            <span class="anime-status">${anime.status}</span>
+                            <button class="play-btn"><i class="fas fa-play"></i></button>
+                        </div>
+                    </div>
+                    <div class="anime-info">
+                        <h3>${anime.title}</h3>
+                        <div class="anime-meta">
+                            <span class="rating"><i class="fas fa-star"></i> ${anime.rating}</span>
+                            <span class="episodes">${anime.episodes} Episodes</span>
+                        </div>
+                        <div class="anime-tags">
+                            ${anime.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                        </div>
+                    </div>
+                `;
+                
+                // Add click event
+                card.addEventListener('click', () => {
+                    // In a real app, this would navigate to the anime details page
+                    alert(`You clicked on ${anime.title}`);
+                });
+                
+                resultsContainer.appendChild(card);
+            });
+        }
+        
+        function loadMoreAnime(category) {
+            // In a real app, this would load the next page of results
+            const resultsContainer = document.getElementById('anime-results');
+            const loadingSpinner = document.getElementById('loading-spinner');
+            
+            // Show loading spinner
+            loadingSpinner.style.display = 'flex';
+            
+            // Simulate API call delay
+            setTimeout(() => {
+                // Generate 6 more anime cards
+                const moreAnime = generateMockAnimeData(category, 6, true);
+                
+                // Render additional results
+                moreAnime.forEach((anime, index) => {
+                    const card = document.createElement('div');
+                    card.className = 'anime-card fade-in';
+                    card.style.animationDelay = `${index * 0.1}s`;
+                    
+                    card.innerHTML = `
+                        <div class="anime-image">
+                            <img src="${anime.image}" alt="${anime.title}">
+                            <div class="anime-overlay">
+                                <span class="anime-status">${anime.status}</span>
+                                <button class="play-btn"><i class="fas fa-play"></i></button>
+                            </div>
+                        </div>
+                        <div class="anime-info">
+                            <h3>${anime.title}</h3>
+                            <div class="anime-meta">
+                                <span class="rating"><i class="fas fa-star"></i> ${anime.rating}</span>
+                                <span class="episodes">${anime.episodes} Episodes</span>
+                            </div>
+                            <div class="anime-tags">
+                                ${anime.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                            </div>
+                        </div>
+                    `;
+                    
+                    // Add click event
+                    card.addEventListener('click', () => {
+                        // In a real app, this would navigate to the anime details page
+                        alert(`You clicked on ${anime.title}`);
+                    });
+                    
+                    resultsContainer.appendChild(card);
+                });
+                
+                // Hide loading spinner
+                loadingSpinner.style.display = 'none';
+                
+                // Check if we've reached "the end" and disable the load more button
+                const currentCount = document.querySelectorAll('.anime-card').length;
+                if (currentCount >= 24) {
+                    document.getElementById('load-more-btn').disabled = true;
+                    document.getElementById('load-more-btn').textContent = 'No More Results';
+                }
+            }, 1000);
+        }
+        
+        function generateMockAnimeData(category, count, isMore = false) {
+            const results = [];
+            const offset = isMore ? 12 : 0; // Offset for "load more" functionality
+            
+            // Title prefixes based on category
+            const titlePrefixes = {
+                'action': ['Battle', 'Dragon', 'Hero', 'Warrior', 'Blade', 'Ninja', 'Samurai'],
+                'romance': ['Love', 'Kiss', 'Heart', 'Sweet', 'Lovely', 'Romantic'],
+                'fantasy': ['Magic', 'Dragon', 'Elf', 'Wizard', 'Mystic', 'Legend'],
+                'sci-fi': ['Space', 'Cyber', 'Mecha', 'Robot', 'Galaxy', 'Future'],
+                'comedy': ['Funny', 'Laugh', 'Silly', 'Happy', 'Crazy', 'Goofy'],
+                'emotional': ['Tears', 'Soul', 'Heart', 'Life', 'Journey', 'Dream']
+            };
+            
+            // Title suffixes
+            const titleSuffixes = ['Chronicles', 'Adventure', 'Story', 'Tale', 'Saga', 'Legend'];
+            
+            // Tags for each category
+            const categoryTags = {
+                'action': ['Fighting', 'Martial Arts', 'Superpower', 'Military', 'Shounen'],
+                'romance': ['Drama', 'School Life', 'Shoujo', 'Slice of Life', 'Comedy'],
+                'fantasy': ['Magic', 'Adventure', 'Demons', 'Supernatural', 'Isekai'],
+                'sci-fi': ['Mecha', 'Space', 'Future', 'Cyberpunk', 'Aliens'],
+                'comedy': ['Slice of Life', 'School', 'Parody', 'Gag Humor', 'Slapstick'],
+                'emotional': ['Drama', 'Slice of Life', 'Psychological', 'Tragedy', 'Coming of Age']
+            };
+            
+            // Status options
+            const statuses = ['Airing', 'Completed', 'Upcoming'];
+            
+            // Generate anime entries
+            const prefixes = titlePrefixes[category.toLowerCase()] || titlePrefixes['action'];
+            const tags = categoryTags[category.toLowerCase()] || categoryTags['action'];
+            
+            for (let i = 0; i < count; i++) {
+                const id = i + offset + 1;
+                const prefixIndex = Math.floor(Math.random() * prefixes.length);
+                const suffixIndex = Math.floor(Math.random() * titleSuffixes.length);
+                
+                const randomYear = Math.floor(Math.random() * 10) + 2013; // 2013-2023
+                const randomEpisodes = Math.floor(Math.random() * 24) + 12; // 12-36 episodes
+                const randomRating = (Math.random() * 2 + 7).toFixed(1); // 7.0-9.0 rating
+                const randomPopularity = Math.floor(Math.random() * 1000) + 1; // 1-1000 popularity rank
+                
+                // Create random tags (2-3 tags)
+                const randomTags = [];
+                const tagCount = Math.floor(Math.random() * 2) + 2; // 2-3 tags
+                
+                for (let j = 0; j < tagCount; j++) {
+                    const tagIndex = Math.floor(Math.random() * tags.length);
+                    const tag = tags[tagIndex];
+                    if (!randomTags.includes(tag)) {
+                        randomTags.push(tag);
+                    }
+                }
+                
+                // Add category as a tag
+                if (!randomTags.includes(category)) {
+                    randomTags.push(category);
+                }
+                
+                // Always include "School" if it's romance or comedy
+                if ((category === 'romance' || category === 'comedy') && !randomTags.includes('School')) {
+                    randomTags.push('School');
+                }
+                
+                // Select random status
+                const statusIndex = Math.floor(Math.random() * statuses.length);
+                const status = statuses[statusIndex];
+                
+                results.push({
+                    id: id,
+                    title: `${prefixes[prefixIndex]} ${titleSuffixes[suffixIndex]} ${id}`,
+                    image: `images/anime${id % 5 + 1}.jpg`, // Loop through available placeholder images
+                    rating: randomRating,
+                    episodes: randomEpisodes,
+                    year: randomYear,
+                    popularity: randomPopularity,
+                    tags: randomTags,
+                    status: status
+                });
+            }
+            
+            return results;
+        }
+        
+        function performSearch() {
+            const searchInput = document.getElementById('search-input');
+            
+            if (searchInput && searchInput.value.trim() !== '') {
+                const query = searchInput.value.trim();
+                alert(`Search functionality for "${query}" would be implemented in a real app`);
+            }
+        }
+    </script>
+</body>
+</html> 

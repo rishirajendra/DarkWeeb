@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAEKWEEB - Your Anime Streaming Platform</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/preloader.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+</head>
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loading-container">
+            <div class="glow"></div>
+            <div class="image-container">
+                <img src="images/loading1.png" alt="Loading Image">
+            </div>
+            <div class="loading-text">LOADING</div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <a href="#home"><img src="images/logo.png" alt="DAEKWEEB Logo"></a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#home" class="active"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="#categories"><i class="fas fa-list"></i> Categories</a></li>
+                    <li><a href="#trending"><i class="fas fa-fire"></i> Trending</a></li>
+                    <li><a href="#popular"><i class="fas fa-star"></i> Popular</a></li>
+                </ul>
+            </nav>
+            <div class="user-actions">
+                <div class="search-bar">
+                    <input type="text" placeholder="Search anime...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <div class="user-profile" id="userProfile">
+                    <img src="images/avatar-placeholder.svg" alt="User profile">
+                    <span class="badge">2</span>
+                    <div class="user-dropdown" id="userDropdown">
+                        <div class="user-dropdown-header">
+                            <img src="images/avatar-placeholder.svg" alt="User profile">
+                            <div class="user-info">
+                                <div class="user-name">Guest User</div>
+                                <div class="user-email">guest@example.com</div>
+                            </div>
+                        </div>
+                        <div class="user-dropdown-menu">
+                            <a href="#" class="user-dropdown-item">
+                                <i class="fas fa-user-circle"></i>
+                                My Profile
+                            </a>
+                            <a href="#" class="user-dropdown-item">
+                                <i class="fas fa-heart"></i>
+                                My Watchlist
+                            </a>
+                            <a href="#" class="user-dropdown-item">
+                                <i class="fas fa-history"></i>
+                                Watch History
+                            </a>
+                            <a href="#" class="user-dropdown-item">
+                                <i class="fas fa-download"></i>
+                                Downloads
+                            </a>
+                            <div class="user-dropdown-divider"></div>
+                            <a href="#" class="user-dropdown-item">
+                                <i class="fas fa-cog"></i>
+                                Account Settings
+                            </a>
+                            <a href="#" class="user-dropdown-item">
+                                <i class="fas fa-question-circle"></i>
+                                Help Center
+                            </a>
+                            <div class="user-dropdown-divider"></div>
+                            <a href="login.html" class="user-dropdown-item">
+                                <i class="fas fa-sign-in-alt"></i>
+                                Login / Sign Up
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <button class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Unlimited Anime, Unlimited Possibilities</h1>
+                <p>Stream your favorite anime series and movies anytime, anywhere.</p>
+            </div>
+            
+            <!-- Hero Slideshow -->
+            <div class="hero-slideshow">
+                <div class="slide-container">
+                    <!-- Slides -->
+                    <div class="slide active">
+                        <div class="slide-content">
+                            <h2>Attack on Titan</h2>
+                            <p class="slide-description">Join Eren and his friends in their battle against the Titans threatening humanity's survival.</p>
+                            <div class="slide-buttons">
+                                <button class="btn btn-primary watch-btn"><i class="fas fa-play"></i> Watch Now</button>
+                                <button class="btn btn-secondary info-btn"><i class="fas fa-info-circle"></i> More Info</button>
+                            </div>
+                        </div>
+                        <div class="slide-bg" style="background-image: url('images/category/hero card/aot.jpg.jpg')"></div>
+                    </div>
+                    <div class="slide">
+                        <div class="slide-content">
+                            <h2>Berserk</h2>
+                            <p class="slide-description">Follow Guts' journey for revenge in this dark fantasy epic.</p>
+                            <div class="slide-buttons">
+                                <button class="btn btn-primary watch-btn"><i class="fas fa-play"></i> Watch Now</button>
+                                <button class="btn btn-secondary info-btn"><i class="fas fa-info-circle"></i> More Info</button>
+                            </div>
+                        </div>
+                        <div class="slide-bg" style="background-image: url('images/category/hero card/beserk.jpg.jpg')"></div>
+                    </div>
+                    <div class="slide">
+                        <div class="slide-content">
+                            <h2>Chainsaw Man</h2>
+                            <p class="slide-description">Denji's life changes forever when he merges with his devil pet to become Chainsaw Man.</p>
+                            <div class="slide-buttons">
+                                <button class="btn btn-primary watch-btn"><i class="fas fa-play"></i> Watch Now</button>
+                                <button class="btn btn-secondary info-btn"><i class="fas fa-info-circle"></i> More Info</button>
+                            </div>
+                        </div>
+                        <div class="slide-bg" style="background-image: url('images/category/hero card/chain.jpg.webp')"></div>
+                    </div>
+                    <div class="slide">
+                        <div class="slide-content">
+                            <h2>Your Name</h2>
+                            <p class="slide-description">Two strangers find themselves linked in a bizarre way in this beautiful romantic fantasy.</p>
+                            <div class="slide-buttons">
+                                <button class="btn btn-primary watch-btn"><i class="fas fa-play"></i> Watch Now</button>
+                                <button class="btn btn-secondary info-btn"><i class="fas fa-info-circle"></i> More Info</button>
+                            </div>
+                        </div>
+                        <div class="slide-bg" style="background-image: url('images/category/hero card/yourname.jpg.jpg')"></div>
+                    </div>
+                    <div class="slide">
+                        <div class="slide-content">
+                            <h2>Tokyo Ghoul</h2>
+                            <p class="slide-description">Ken Kaneki's life is forever changed after a fatal encounter turns him into a half-ghoul.</p>
+                            <div class="slide-buttons">
+                                <button class="btn btn-primary watch-btn"><i class="fas fa-play"></i> Watch Now</button>
+                                <button class="btn btn-secondary info-btn"><i class="fas fa-info-circle"></i> More Info</button>
+                            </div>
+                        </div>
+                        <div class="slide-bg" style="background-image: url('images/category/hero card/ghoul.jpg.webp')"></div>
+                    </div>
+                    <div class="slide">
+                        <div class="slide-content">
+                            <h2>Monster</h2>
+                            <p class="slide-description">Dr. Tenma's life spirals into chaos after saving a young boy with a monstrous secret.</p>
+                            <div class="slide-buttons">
+                                <button class="btn btn-primary watch-btn"><i class="fas fa-play"></i> Watch Now</button>
+                                <button class="btn btn-secondary info-btn"><i class="fas fa-info-circle"></i> More Info</button>
+                            </div>
+                        </div>
+                        <div class="slide-bg" style="background-image: url('images/category/hero card/monster.jpg.webp')"></div>
+                    </div>
+                    <div class="slide">
+                        <div class="slide-content">
+                            <h2>Shiki</h2>
+                            <p class="slide-description">A remote village becomes the center of a vampire epidemic in this chilling horror series.</p>
+                            <div class="slide-buttons">
+                                <button class="btn btn-primary watch-btn"><i class="fas fa-play"></i> Watch Now</button>
+                                <button class="btn btn-secondary info-btn"><i class="fas fa-info-circle"></i> More Info</button>
+                            </div>
+                        </div>
+                        <div class="slide-bg" style="background-image: url('images/category/hero card/shiki.jpg.avif')"></div>
+                    </div>
+                </div>
+                <!-- Navigation Dots -->
+                <div class="slide-dots">
+                    <span class="dot active" data-slide="0"></span>
+                    <span class="dot" data-slide="1"></span>
+                    <span class="dot" data-slide="2"></span>
+                    <span class="dot" data-slide="3"></span>
+                    <span class="dot" data-slide="4"></span>
+                    <span class="dot" data-slide="5"></span>
+                    <span class="dot" data-slide="6"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories" id="categories">
+        <div class="container">
+            <h2 class="section-title">Discover by Categories</h2>
+            <div class="categories-grid">
+                <div class="category-card" data-href="action.html" style="background-image: url('images/action1.jpg'), linear-gradient(45deg, #ff5e62, #ff9966)">
+                    <div class="category-content">
+                        <b><h3>Action</h3></b>
+                        <b><p>Exciting battles and adventures</p></b>
+                    </div>
+                    <div class="shine"></div>
+                </div>
+                <div class="category-card romance-card" data-href="romance.html" style="background-image: url('images/romance1.jpg'), linear-gradient(45deg, #ff758c, #ff7eb3)">
+                    <div class="category-content">
+                        <b><h3>Romance</h3></b>
+                        <b><p>Heartwarming love stories</p></b>
+                    </div>
+                    <div class="shine"></div>
+                </div>
+                <div class="category-card" data-href="fantasy.html" style="background-image: url('images/fantacy.jpg'), linear-gradient(45deg, #7f7fd5, #91eae4)">
+                    <div class="category-content">
+                        <b><h3>Fantasy</h3></b>
+                        <b><p>Magical worlds and adventures</p></b>
+                    </div>
+                    <div class="shine"></div>
+                </div>
+                <div class="category-card" data-href="scifi.html" style="background-image: url('images/sci-fi.jpg'), linear-gradient(45deg, #43cea2, #185a9d)">
+                    <div class="category-content">
+                        <b><h3>Sci-Fi</h3></b>
+                        <b><p>Futuristic technology and space</p></b>
+                    </div>
+                    <div class="shine"></div>
+                </div>
+                <div class="category-card" data-href="comedy.html" style="background-image: url('images/comedy.jpg'), linear-gradient(45deg, #ffb347, #ffcc33)">
+                    <div class="category-content">
+                        <b><h3>Comedy</h3></b>
+                        <b><p>Hilarious moments and laughter</p></b>
+                    </div>
+                    <div class="shine"></div>
+                </div>
+                <div class="category-card" data-href="emotional.html" style="background-image: url('images/emotional.jpg'), linear-gradient(45deg, #654ea3, #eaafc8)">
+                    <div class="category-content">
+                        <b><h3>Emotional</h3></b>
+                        <b><p>Heartfelt stories and deep feelings</p></b>
+                    </div>
+                    <div class="shine"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trending Section -->
+    <section class="trending" id="trending">
+        <div class="container">
+            <h2 class="section-title">Trending Now</h2>
+            <div class="anime-slider">
+                <div class="anime-card">
+                    <div class="anime-image">
+                        <img src="images/anime1.jpg" alt="Anime Title 1">
+                        <div class="anime-overlay">
+                            <button class="play-btn"><i class="fas fa-play"></i></button>
+                        </div>
+                    </div>
+                    <div class="anime-info">
+                        <h3>Demon Slayer</h3>
+                        <div class="anime-meta">
+                            <span class="rating"><i class="fas fa-star"></i> 9.5</span>
+                            <span class="episodes">24 Episodes</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="anime-card">
+                    <div class="anime-image">
+                        <img src="images/anime2.jpg" alt="Anime Title 2">
+                        <div class="anime-overlay">
+                            <button class="play-btn"><i class="fas fa-play"></i></button>
+                        </div>
+                    </div>
+                    <div class="anime-info">
+                        <h3>Attack on Titan</h3>
+                        <div class="anime-meta">
+                            <span class="rating"><i class="fas fa-star"></i> 9.8</span>
+                            <span class="episodes">75 Episodes</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="anime-card">
+                    <div class="anime-image">
+                        <img src="images/anime3.jpg" alt="Anime Title 3">
+                        <div class="anime-overlay">
+                            <button class="play-btn"><i class="fas fa-play"></i></button>
+                        </div>
+                    </div>
+                    <div class="anime-info">
+                        <h3>Jujutsu Kaisen</h3>
+                        <div class="anime-meta">
+                            <span class="rating"><i class="fas fa-star"></i> 9.7</span>
+                            <span class="episodes">24 Episodes</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="anime-card">
+                    <div class="anime-image">
+                        <img src="images/anime8.jpg" alt="Anime Title 8">
+                        <div class="anime-overlay">
+                            <button class="play-btn"><i class="fas fa-play"></i></button>
+                        </div>
+                    </div>
+                    <div class="anime-info">
+                        <h3>Vinland Saga</h3>
+                        <div class="anime-meta">
+                            <span class="rating"><i class="fas fa-star"></i> 9.5</span>
+                            <span class="episodes">24 Episodes</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Second Row of Trending Anime -->
+            <div class="anime-slider second-row">
+                <div class="anime-card">
+                    <div class="anime-image">
+                        <img src="images/anime9.jpg" alt="Anime Title 9">
+                        <div class="anime-overlay">
+                            <button class="play-btn"><i class="fas fa-play"></i></button>
+                        </div>
+                    </div>
+                    <div class="anime-info">
+                        <h3>Bleach</h3>
+                        <div class="anime-meta">
+                            <span class="rating"><i class="fas fa-star"></i> 9.3</span>
+                            <span class="episodes">366 Episodes</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="anime-card">
+                    <div class="anime-image">
+                        <img src="images/anime10.jpg" alt="Anime Title 10">
+                        <div class="anime-overlay">
+                            <button class="play-btn"><i class="fas fa-play"></i></button>
+                        </div>
+                    </div>
+                    <div class="anime-info">
+                        <h3>Death Note</h3>
+                        <div class="anime-meta">
+                            <span class="rating"><i class="fas fa-star"></i> 9.6</span>
+                            <span class="episodes">37 Episodes</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="anime-card">
+                    <div class="anime-image">
+                        <img src="images/anime11.jpg" alt="Anime Title 11">
+                        <div class="anime-overlay">
+                            <button class="play-btn"><i class="fas fa-play"></i></button>
+                        </div>
+                    </div>
+                    <div class="anime-info">
+                        <h3>Naruto Shippuden</h3>
+                        <div class="anime-meta">
+                            <span class="rating"><i class="fas fa-star"></i> 9.4</span>
+                            <span class="episodes">500 Episodes</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="anime-card">
+                    <div class="anime-image">
+                        <img src="images/anime12.jpg" alt="Anime Title 12">
+                        <div class="anime-overlay">
+                            <button class="play-btn"><i class="fas fa-play"></i></button>
+                        </div>
+                    </div>
+                    <div class="anime-info">
+                        <h3>Fullmetal Alchemist</h3>
+                        <div class="anime-meta">
+                            <span class="rating"><i class="fas fa-star"></i> 9.7</span>
+                            <span class="episodes">64 Episodes</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Section -->
+    <section class="popular" id="popular">
+        <div class="container">
+            <h2 class="section-title">Popular This Season</h2>
+            <div class="anime-grid">
+                <div class="anime-card">
+                    <div class="anime-image">
+                        <img src="images/anime4.jpg" alt="Anime Title 4">
+                        <div class="anime-overlay">
+                            <button class="play-btn"><i class="fas fa-play"></i></button>
+                        </div>
+                    </div>
+                    <div class="anime-info">
+                        <h3>My Hero Academia</h3>
+                        <div class="anime-meta">
+                            <span class="rating"><i class="fas fa-star"></i> 9.2</span>
+                            <span class="episodes">113 Episodes</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="anime-card">
+                    <div class="anime-image">
+                        <img src="images/anime5.jpg" alt="Anime Title 5">
+                        <div class="anime-overlay">
+                            <button class="play-btn"><i class="fas fa-play"></i></button>
+                        </div>
+                    </div>
+                    <div class="anime-info">
+                        <h3>One Piece</h3>
+                        <div class="anime-meta">
+                            <span class="rating"><i class="fas fa-star"></i> 9.4</span>
+                            <span class="episodes">1000+ Episodes</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="anime-card">
+                    <div class="anime-image">
+                        <img src="images/anime6.jpg" alt="Anime Title 6">
+                        <div class="anime-overlay">
+                            <button class="play-btn"><i class="fas fa-play"></i></button>
+                        </div>
+                    </div>
+                    <div class="anime-info">
+                        <h3>Chainsaw Man</h3>
+                        <div class="anime-meta">
+                            <span class="rating"><i class="fas fa-star"></i> 9.6</span>
+                            <span class="episodes">12 Episodes</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="anime-card">
+                    <div class="anime-image">
+                        <img src="images/anime7.jpg" alt="Anime Title 7">
+                        <div class="anime-overlay">
+                            <button class="play-btn"><i class="fas fa-play"></i></button>
+                        </div>
+                    </div>
+                    <div class="anime-info">
+                        <h3>Spy x Family</h3>
+                        <div class="anime-meta">
+                            <span class="rating"><i class="fas fa-star"></i> 9.3</span>
+                            <span class="episodes">25 Episodes</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Second Row of Popular Anime -->
+            <div class="anime-grid second-row">
+                <div class="anime-card">
+                    <div class="anime-image">
+                        <img src="images/anime13.jpg" alt="Anime Title 13">
+                        <div class="anime-overlay">
+                            <button class="play-btn"><i class="fas fa-play"></i></button>
+                        </div>
+                    </div>
+                    <div class="anime-info">
+                        <h3>Hunter x Hunter</h3>
+                        <div class="anime-meta">
+                            <span class="rating"><i class="fas fa-star"></i> 9.5</span>
+                            <span class="episodes">148 Episodes</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="anime-card">
+                    <div class="anime-image">
+                        <img src="images/anime14.jpg" alt="Anime Title 14">
+                        <div class="anime-overlay">
+                            <button class="play-btn"><i class="fas fa-play"></i></button>
+                        </div>
+                    </div>
+                    <div class="anime-info">
+                        <h3>Steins;Gate</h3>
+                        <div class="anime-meta">
+                            <span class="rating"><i class="fas fa-star"></i> 9.8</span>
+                            <span class="episodes">24 Episodes</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="anime-card">
+                    <div class="anime-image">
+                        <img src="images/anime15.jpg" alt="Anime Title 15">
+                        <div class="anime-overlay">
+                            <button class="play-btn"><i class="fas fa-play"></i></button>
+                        </div>
+                    </div>
+                    <div class="anime-info">
+                        <h3>Violet Evergarden</h3>
+                        <div class="anime-meta">
+                            <span class="rating"><i class="fas fa-star"></i> 9.4</span>
+                            <span class="episodes">13 Episodes</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="anime-card">
+                    <div class="anime-image">
+                        <img src="images/anime16.jpg" alt="Anime Title 16">
+                        <div class="anime-overlay">
+                            <button class="play-btn"><i class="fas fa-play"></i></button>
+                        </div>
+                    </div>
+                    <div class="anime-info">
+                        <h3>Made in Abyss</h3>
+                        <div class="anime-meta">
+                            <span class="rating"><i class="fas fa-star"></i> 9.6</span>
+                            <span class="episodes">13 Episodes</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Stay Updated with DAEKWEEB</h2>
+                <p>Subscribe to our newsletter to get updates on new releases, events, and exclusive content.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email">
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Anime Details Modal -->
+    <div class="anime-modal" id="animeModal">
+        <div class="modal-content">
+            <div class="modal-close">
+                <i class="fas fa-times"></i>
+            </div>
+            <div class="modal-image">
+                <img src="" alt="Anime Cover" id="modalImage">
+            </div>
+            <div class="modal-body">
+                <h2 class="modal-title" id="modalTitle">Anime Title</h2>
+                <div class="modal-info">
+                    <div class="info-item">
+                        <i class="fas fa-star"></i>
+                        <span id="modalRating">8.5</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-calendar"></i>
+                        <span id="modalYear">2023</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <span id="modalDuration">24 min</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-film"></i>
+                        <span id="modalType">TV</span>
+                    </div>
+                </div>
+                <div class="modal-description" id="modalDescription">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc vel ultricies lacinia, nisl nisl aliquam nisl, eget aliquam nisl nisl sit amet nisl.
+                </div>
+                <div class="modal-tabs">
+                    <div class="tab-item active" data-tab="episodes">Episodes</div>
+                    <div class="tab-item" data-tab="info">Info</div>
+                    <div class="tab-item" data-tab="manga">Manga</div>
+                </div>
+                <div class="tab-content active" id="episodesTab">
+                    <div class="episodes-list" id="episodesList">
+                        <!-- Episodes will be populated by JavaScript -->
+                    </div>
+                </div>
+                <div class="tab-content" id="infoTab">
+                    <div class="info-list">
+                        <div class="info-label">Studios:</div>
+                        <div class="info-value" id="modalStudios">Studio Name</div>
+                        
+                        <div class="info-label">Genres:</div>
+                        <div class="info-value" id="modalGenres">Action, Adventure</div>
+                        
+                        <div class="info-label">Status:</div>
+                        <div class="info-value" id="modalStatus">Ongoing</div>
+                        
+                        <div class="info-label">Episodes:</div>
+                        <div class="info-value" id="modalEpisodes">12</div>
+                    </div>
+                </div>
+                <div class="tab-content" id="mangaTab">
+                    <div class="manga-info">
+                        <!-- Manga items will be populated by JavaScript -->
+                        <div class="manga-item">
+                            <div class="manga-image">
+                                <img src="images/poster-1.png" alt="Manga Cover">
+                            </div>
+                            <div class="manga-details">
+                                <div class="manga-title">Manga Title</div>
+                                <div class="manga-meta">
+                                    <span>Chapters: 120</span>
+                                    <span>Status: Ongoing</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <button class="action-btn watch-btn">
+                        <i class="fas fa-play"></i> Watch Now
+                    </button>
+                    <button class="action-btn add-list-btn">
+                        <i class="fas fa-plus"></i> My List
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Anime Details Modal -->
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="#home"><img src="images/logo.png" alt="DAEKWEEB Logo"></a>
+                    <p>Your ultimate anime streaming platform with thousands of titles from classic to the latest releases. Join our community today!</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-discord"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h3>Navigate</h3>
+                        <ul>
+                            <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+                            <li><a href="#categories"><i class="fas fa-list"></i> Categories</a></li>
+                            <li><a href="#trending"><i class="fas fa-fire"></i> Trending</a></li>
+                            <li><a href="#popular"><i class="fas fa-star"></i> Popular</a></li>
+                            <li><a href="#"><i class="fas fa-calendar"></i> New Releases</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Explore</h3>
+                        <ul>
+                            <li><a href="#"><i class="fas fa-film"></i> Movies</a></li>
+                            <li><a href="#"><i class="fas fa-tv"></i> Series</a></li>
+                            <li><a href="#"><i class="fas fa-closed-captioning"></i> Subbed</a></li>
+                            <li><a href="#"><i class="fas fa-microphone-alt"></i> Dubbed</a></li>
+                            <li><a href="#"><i class="fas fa-heart"></i> Most Popular</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>About</h3>
+                        <ul>
+                            <li><a href="#"><i class="fas fa-info-circle"></i> About Us</a></li>
+                            <li><a href="#"><i class="fas fa-envelope"></i> Contact</a></li>
+                            <li><a href="#"><i class="fas fa-question-circle"></i> FAQ</a></li>
+                            <li><a href="#"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li>
+                            <li><a href="#"><i class="fas fa-file-contract"></i> Terms of Service</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="copyright">&copy; 2023 DAEKWEEB. All rights reserved.</p>
+                <div class="footer-links-bottom">
+                    <a href="#">Sitemap</a>
+                    <a href="#">Feedback</a>
+                    <a href="#">Cookies</a>
+                    <a href="#">Report Issues</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/preloader.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/slideshow.js"></script>
+    <script src="js/scroll-effects.js"></script>
+    <script src="js/anime-api.js"></script>
+    
+    <!-- Inline script to ensure dropdown works -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM fully loaded');
+            // Direct initialization of user dropdown
+            const userProfile = document.getElementById('userProfile');
+            const userDropdown = document.getElementById('userDropdown');
+            
+            if (userProfile && userDropdown) {
+                console.log('Found user profile and dropdown elements');
+                
+                userProfile.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    console.log('Profile clicked');
+                    userDropdown.classList.toggle('active');
+                });
+                
+                document.addEventListener('click', function(e) {
+                    if (!userProfile.contains(e.target) && userDropdown.classList.contains('active')) {
+                        console.log('Clicked outside dropdown, closing');
+                        userDropdown.classList.remove('active');
+                    }
+                });
+                
+                // Prevent dropdown from closing when clicking inside it
+                userDropdown.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                });
+            } else {
+                console.error('User profile or dropdown not found');
+            }
+        });
+    </script>
+</body>
+</html>

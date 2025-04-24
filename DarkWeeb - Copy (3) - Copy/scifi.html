@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sci-Fi Anime - DAEKWEEB</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+    <style>
+        /* Enhanced styles for sci-fi page */
+        body {
+            overflow-x: hidden;
+        }
+        
+        .scifi-header {
+            position: relative;
+            height: 500px;
+            width: 100%;
+            margin-top: 0;
+            background-image: linear-gradient(to right, 
+                rgba(0, 0, 0, 0.95) 0%, 
+                rgba(0, 0, 0, 0.8) 40%, 
+                rgba(0, 0, 0, 0.6) 70%, 
+                rgba(0, 0, 0, 0.3) 100%), 
+                url('images/scifi1.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            padding: 0 5%;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        
+        .scifi-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 70% 50%, rgba(5, 150, 255, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
+            pointer-events: none;
+        }
+        
+        .scifi-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background: linear-gradient(to top, rgba(10, 10, 10, 1) 0%, rgba(10, 10, 10, 0) 100%);
+            pointer-events: none;
+        }
+        
+        .scifi-title {
+            position: relative;
+            max-width: 700px;
+            padding: 40px 50px;
+            border-left: 5px solid #0596ff;
+            animation: fadeInUp 1s ease-out;
+            transform: translateZ(0);
+        }
+        
+        .scifi-title::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -5px;
+            width: 5px;
+            height: 0;
+            background: linear-gradient(to bottom, #0596ff, #00b3ff);
+            animation: borderAnimation 1.5s ease-out forwards;
+            animation-delay: 0.5s;
+        }
+        
+        @keyframes borderAnimation {
+            0% { height: 0; }
+            100% { height: 100%; }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .scifi-title h1 {
+            font-size: 4.2rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: #ffffff;
+            text-shadow: 0 3px 10px rgba(0, 0, 0, 0.6);
+            position: relative;
+        }
+        
+        .scifi-title h1::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, #0596ff, #00b3ff);
+            border-radius: 2px;
+        }
+        
+        .scifi-title p {
+            font-size: 1.25rem;
+            line-height: 1.6;
+            color: #e5e5e5;
+            max-width: 600px;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            margin-top: 25px;
+        }
+        
+        .scifi-content {
+            padding: 80px 0;
+            background: linear-gradient(to bottom, #0a0a0a 0%, #141414 100%);
+            position: relative;
+        }
+        
+        .scifi-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('images/pattern.svg');
+            background-size: cover;
+            opacity: 0.03;
+            pointer-events: none;
+        }
+        
+        .section-title {
+            position: relative;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 50px;
+            text-align: center;
+            color: #ffffff;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, #0596ff, #00b3ff);
+            border-radius: 2px;
+        }
+        
+        .anime-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+            perspective: 1000px;
+        }
+        
+        .anime-card {
+            position: relative;
+            background-color: #1a1a1a;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            transform-style: preserve-3d;
+            transform: translateZ(0);
+        }
+        
+        .anime-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 20px 35px rgba(0, 0, 0, 0.5), 0 0 20px rgba(5, 150, 255, 0.3);
+            z-index: 5;
+        }
+        
+        .anime-image {
+            position: relative;
+            height: 0;
+            padding-top: 150%;
+            overflow: hidden;
+        }
+        
+        .anime-image img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+        }
+        
+        .anime-card:hover .anime-image img {
+            transform: scale(1.08);
+        }
+        
+        .anime-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, 
+                rgba(0, 0, 0, 0) 0%, 
+                rgba(0, 0, 0, 0.3) 50%, 
+                rgba(0, 0, 0, 0.9) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .anime-card:hover .anime-overlay {
+            opacity: 1;
+        }
+        
+        .play-btn {
+            background-color: rgba(5, 150, 255, 0.9);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            font-size: 1.4rem;
+            cursor: pointer;
+            transform: translateY(20px) scale(0.8);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            opacity: 0;
+        }
+        
+        .anime-card:hover .play-btn {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+        }
+        
+        .play-btn:hover {
+            background-color: #0596ff;
+            transform: translateY(0) scale(1.1);
+        }
+        
+        .anime-info {
+            padding: 20px;
+            background-color: #1a1a1a;
+            position: relative;
+        }
+        
+        .anime-card:hover .anime-info {
+            background-color: #1f1f1f;
+        }
+        
+        .anime-info h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #ffffff;
+            transition: color 0.3s ease;
+        }
+        
+        .anime-card:hover .anime-info h3 {
+            color: #0596ff;
+        }
+        
+        .anime-meta {
+            display: flex;
+            justify-content: space-between;
+            color: #b3b3b3;
+            font-size: 0.9rem;
+        }
+        
+        .rating {
+            display: flex;
+            align-items: center;
+        }
+        
+        .rating i {
+            color: #ffc107;
+            margin-right: 5px;
+        }
+        
+        .episodes {
+            font-weight: 500;
+            opacity: 0.8;
+        }
+        
+        .more-btn {
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background-color: transparent;
+            color: #ffffff;
+            border: 2px solid #0596ff;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background-color: #0596ff;
+            transition: width 0.3s ease;
+            z-index: -1;
+        }
+        
+        .btn:hover::before {
+            width: 100%;
+        }
+        
+        .btn:hover {
+            color: #ffffff;
+            box-shadow: 0 5px 15px rgba(5, 150, 255, 0.4);
+        }
+        
+        .btn i {
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+        }
+        
+        .btn:hover i {
+            transform: translateY(3px);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .scifi-header {
+                height: 450px;
+            }
+            
+            .scifi-title h1 {
+                font-size: 3.5rem;
+            }
+            
+            .anime-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 25px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .scifi-header {
+                height: 400px;
+                background-image: linear-gradient(to right, 
+                    rgba(0, 0, 0, 0.9) 0%, 
+                    rgba(0, 0, 0, 0.8) 100%), 
+                    url('images/scifi1.jpg');
+            }
+            
+            .scifi-title {
+                padding: 30px;
+            }
+            
+            .scifi-title h1 {
+                font-size: 2.8rem;
+            }
+            
+            .scifi-title p {
+                font-size: 1.1rem;
+            }
+            
+            .anime-grid {
+                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+                gap: 20px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .scifi-header {
+                height: 350px;
+                align-items: flex-end;
+                padding-bottom: 50px;
+            }
+            
+            .scifi-title {
+                padding: 25px;
+            }
+            
+            .scifi-title h1 {
+                font-size: 2.5rem;
+            }
+            
+            .anime-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <a href="index1.html"><img src="images/logo.png" alt="DAEKWEEB Logo"></a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index1.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="index1.html#categories"><i class="fas fa-list"></i> Categories</a></li>
+                    <li><a href="index1.html#trending"><i class="fas fa-fire"></i> Trending</a></li>
+                    <li><a href="index1.html#popular"><i class="fas fa-star"></i> Popular</a></li>
+                </ul>
+            </nav>
+            <div class="user-actions">
+                <div class="search-bar">
+                    <input type="text" placeholder="Search anime...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <div class="user-profile">
+                    <img src="images/avatar-placeholder.svg" alt="User profile">
+                </div>
+                <button class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sci-Fi Header -->
+    <section class="scifi-header">
+        <div class="scifi-title">
+            <h1>Sci-Fi Anime</h1>
+            <p>Explore futuristic worlds, advanced technologies, and thought-provoking concepts that challenge our understanding of reality in these mind-bending sci-fi anime series.</p>
+        </div>
+    </section>
+
+    <!-- Sci-Fi Anime Grid -->
+    <section class="scifi-content">
+        <div class="container">
+            <h2 class="section-title">Sci-Fi Anime Collection</h2>
+            <div class="anime-grid">
+                <!-- Sci-Fi Anime Card 1 -->
+                <div class="anime-card">
+                    <div class="anime-image">
+                        <img src="https://m.media-amazon.com/images/M/MV5BNWYzNmZmMTUtNzI5YS00ZjIzLWI5MjAtZTUwZWFiODQ0NzM1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg" alt="Steins;Gate">
+                        <div class="anime-overlay">
+                            <button class="play-btn"><i class="fas fa-play"></i></button>
+                        </div>
+                    </div>
+                    <div class="anime-info">
+                        <h3>Steins;Gate</h3>
+                        <div class="anime-meta">
+                            <span class="rating"><i class="fas fa-star"></i> 9.8</span>
+                            <span class="episodes">24 Episodes</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Sci-Fi Anime Card 2 -->
+                <div class="anime-card">
+                    <div class="anime-image">
+                        <img src="https://m.media-amazon.com/images/M/MV5BNzQyYzU3Y2MtOWY2Yy00ZGM2LTg3ZTUtMDJkZTJiMmEzMjYxXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg" alt="Cowboy Bebop">
+                        <div class="anime-overlay">
+                            <button class="play-btn"><i class="fas fa-play"></i></button>
+                        </div>
+                    </div>
+                    <div class="anime-info">
+                        <h3>Cowboy Bebop</h3>
+                        <div class="anime-meta">
+                            <span class="rating"><i class="fas fa-star"></i> 9.6</span>
+                            <span class="episodes">26 Episodes</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Sci-Fi Anime Card 3 -->
+                <div class="anime-card">
+                    <div class="anime-image">
+                        <img src="https://m.media-amazon.com/images/M/MV5BMTMzMjgyMzQ2Nl5BMl5BanBnXkFtZTcwMDA5NTIyNw@@._V1_.jpg" alt="Ghost in the Shell">
+                        <div class="anime-overlay">
+                            <button class="play-btn"><i class="fas fa-play"></i></button>
+                        </div>
+                    </div>
+                    <div class="anime-info">
+                        <h3>Ghost in the Shell</h3>
+                        <div class="anime-meta">
+                            <span class="rating"><i class="fas fa-star"></i> 9.4</span>
+                            <span class="episodes">Movie</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Sci-Fi Anime Card 4 -->
+                <div class="anime-card">
+                    <div class="anime-image">
+                        <img src="https://m.media-amazon.com/images/M/MV5BODg2MTA2MjMzMV5BMl5BanBnXkFtZTgwNDU1ODA2NzM@._V1_.jpg" alt="Psycho-Pass">
+                        <div class="anime-overlay">
+                            <button class="play-btn"><i class="fas fa-play"></i></button>
+                        </div>
+                    </div>
+                    <div class="anime-info">
+                        <h3>Psycho-Pass</h3>
+                        <div class="anime-meta">
+                            <span class="rating"><i class="fas fa-star"></i> 9.1</span>
+                            <span class="episodes">22 Episodes</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Sci-Fi Anime Card 5 -->
+                <div class="anime-card">
+                    <div class="anime-image">
+                        <img src="https://m.media-amazon.com/images/M/MV5BZmEzN2YzOTItMDI5MS00MGU4LWI1NWQtOTg5ZThhNGQwYTEzXkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_.jpg" alt="Neon Genesis Evangelion">
+                        <div class="anime-overlay">
+                            <button class="play-btn"><i class="fas fa-play"></i></button>
+                        </div>
+                    </div>
+                    <div class="anime-info">
+                        <h3>Neon Genesis Evangelion</h3>
+                        <div class="anime-meta">
+                            <span class="rating"><i class="fas fa-star"></i> 9.5</span>
+                            <span class="episodes">26 Episodes</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Sci-Fi Anime Card 6 -->
+                <div class="anime-card">
+                    <div class="anime-image">
+                        <img src="https://m.media-amazon.com/images/M/MV5BMGEyNzhkYzktMGMyZS00YzRiLWJlYjktZjJkOTU5ZDY0ZGI4XkEyXkFqcGdeQXVyNjAwNDUxODI@._V1_.jpg" alt="Serial Experiments Lain">
+                        <div class="anime-overlay">
+                            <button class="play-btn"><i class="fas fa-play"></i></button>
+                        </div>
+                    </div>
+                    <div class="anime-info">
+                        <h3>Serial Experiments Lain</h3>
+                        <div class="anime-meta">
+                            <span class="rating"><i class="fas fa-star"></i> 8.8</span>
+                            <span class="episodes">13 Episodes</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Sci-Fi Anime Card 7 -->
+                <div class="anime-card">
+                    <div class="anime-image">
+                        <img src="https://m.media-amazon.com/images/M/MV5BNzk4MDZhNTctMDA3OC00ODdkLWIyOWYtN2M0MzA3MDY5NDk1XkEyXkFqcGdeQXVyMTA1OTEwNjE@._V1_.jpg" alt="Akira">
+                        <div class="anime-overlay">
+                            <button class="play-btn"><i class="fas fa-play"></i></button>
+                        </div>
+                    </div>
+                    <div class="anime-info">
+                        <h3>Akira</h3>
+                        <div class="anime-meta">
+                            <span class="rating"><i class="fas fa-star"></i> 9.2</span>
+                            <span class="episodes">Movie</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Sci-Fi Anime Card 8 -->
+                <div class="anime-card">
+                    <div class="anime-image">
+                        <img src="https://m.media-amazon.com/images/M/MV5BOWIzZGUxZmItOThkMS00Y2QyLTg0MTctYjJmMTU3NWRjYjdkXkEyXkFqcGdeQXVyMzgxODM4NjM@._V1_.jpg" alt="Dr. Stone">
+                        <div class="anime-overlay">
+                            <button class="play-btn"><i class="fas fa-play"></i></button>
+                        </div>
+                    </div>
+                    <div class="anime-info">
+                        <h3>Dr. Stone</h3>
+                        <div class="anime-meta">
+                            <span class="rating"><i class="fas fa-star"></i> 8.9</span>
+                            <span class="episodes">48 Episodes</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Load More Button -->
+            <div class="more-btn">
+                <button class="btn">Load More <i class="fas fa-chevron-down"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="index1.html"><img src="images/logo.png" alt="DAEKWEEB Logo"></a>
+                    <p>Your ultimate anime streaming platform with thousands of titles from classic to the latest releases. Join our community today!</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-discord"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h3>Navigate</h3>
+                        <ul>
+                            <li><a href="index1.html"><i class="fas fa-home"></i> Home</a></li>
+                            <li><a href="index1.html#categories"><i class="fas fa-list"></i> Categories</a></li>
+                            <li><a href="index1.html#trending"><i class="fas fa-fire"></i> Trending</a></li>
+                            <li><a href="index1.html#popular"><i class="fas fa-star"></i> Popular</a></li>
+                            <li><a href="#"><i class="fas fa-calendar"></i> New Releases</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Explore</h3>
+                        <ul>
+                            <li><a href="#"><i class="fas fa-film"></i> Movies</a></li>
+                            <li><a href="#"><i class="fas fa-tv"></i> Series</a></li>
+                            <li><a href="#"><i class="fas fa-closed-captioning"></i> Subbed</a></li>
+                            <li><a href="#"><i class="fas fa-microphone-alt"></i> Dubbed</a></li>
+                            <li><a href="#"><i class="fas fa-heart"></i> Most Popular</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>About</h3>
+                        <ul>
+                            <li><a href="#"><i class="fas fa-info-circle"></i> About Us</a></li>
+                            <li><a href="#"><i class="fas fa-envelope"></i> Contact</a></li>
+                            <li><a href="#"><i class="fas fa-question-circle"></i> FAQ</a></li>
+                            <li><a href="#"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li>
+                            <li><a href="#"><i class="fas fa-file-contract"></i> Terms of Service</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="copyright">&copy; 2023 DAEKWEEB. All rights reserved.</p>
+                <div class="footer-links-bottom">
+                    <a href="#">Sitemap</a>
+                    <a href="#">Feedback</a>
+                    <a href="#">Cookies</a>
+                    <a href="#">Report Issues</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        // Add animation for anime cards
+        document.addEventListener('DOMContentLoaded', function() {
+            const animeCards = document.querySelectorAll('.anime-card');
+            
+            animeCards.forEach((card, index) => {
+                // Staggered fade-in animation
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+                
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 100 + (index * 100));
+                
+                // Add hover effect for play button
+                const playBtn = card.querySelector('.play-btn');
+                playBtn.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.1)';
+                });
+                
+                playBtn.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html> 
